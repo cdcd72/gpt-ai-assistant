@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.4.4 (2023-03-19)
+
+### New Features
+
+- Implement translate to zh (zh-tw)
+
 ## 4.4.3 (2023-03-11)
 
 - Fix wording of `doc` and `report` commands

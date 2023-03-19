@@ -94,6 +94,9 @@ const ja = {
   __COMMAND_TRANSLATE_TO_JA_LABEL: '翻成日文', // TODO
   __COMMAND_TRANSLATE_TO_JA_TEXT: '翻成日文', // TODO
   __COMMAND_TRANSLATE_TO_JA_PROMPT: '請將以下內容翻譯成日文。', // TODO
+  __COMMAND_TRANSLATE_TO_ZH_LABEL: '翻成中文', // TODO
+  __COMMAND_TRANSLATE_TO_ZH_TEXT: '翻成中文', // TODO
+  __COMMAND_TRANSLATE_TO_ZH_PROMPT: '將以下內容翻譯成繁體中文。', // TODO
   __COMPLETION_DEFAULT_SYSTEM_PROMPT: '', // TODO
   __COMPLETION_DEFAULT_HUMAN_PROMPT: (name) => (name ? `私は${name}です` : 'こんにちは'),
   __COMPLETION_DEFAULT_AI_PROMPT: (name) => (name ? `私は${name}です` : 'こんにちは'),
