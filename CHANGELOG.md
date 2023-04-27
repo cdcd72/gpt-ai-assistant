@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.5.0.1 (2023-04-27)
+
+### Bug Fixes
+
+- Improve translate to `zh_TW` and `zh_CN`
+
 ## 4.5.0 (2023-04-27)
 
 ### New Features
