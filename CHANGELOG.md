@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.5.0.1 (2023-04-27)
+
+### Bug Fixes
+
+- Improve translate to `zh_TW` and `zh_CN`
+
+## 4.5.0 (2023-04-27)
+
+### New Features
+
+- Support `zh_CN` locale
+
 ## 4.4.4 (2023-03-21)
 
 ### Bug Fixes
@@ -11,7 +23,7 @@
 
 ### New Features
 
-- Implement translate to zh (zh-tw)
+- Implement translate to zh (`zh_TW`)
 
 ## 4.4.3 (2023-03-11)
 
