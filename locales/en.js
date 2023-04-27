@@ -96,8 +96,8 @@ const en = {
   __COMMAND_TRANSLATE_TO_JA_PROMPT: '請將以下內容翻譯成日文。', // TODO
   __COMMAND_TRANSLATE_TO_ZH_LABEL: '翻成中文', // TODO
   __COMMAND_TRANSLATE_TO_ZH_TEXT: '翻成中文', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_PROMPT: '將以下內容翻譯成繁體中文。', // TODO
-  __COMPLETION_DEFAULT_SYSTEM_PROMPT: '', // TODO
+  __COMMAND_TRANSLATE_TO_ZH_PROMPT: (lang) => `將以下內容翻譯成${lang === 'zh_TW' ? '繁體中文' : '簡體中文'}。`, // TODO
+  __COMPLETION_DEFAULT_SYSTEM_PROMPT: (lang) => '', // TODO
   __COMPLETION_DEFAULT_HUMAN_PROMPT: (name) => (name ? `I am ${name}` : 'Hello'),
   __COMPLETION_DEFAULT_AI_PROMPT: (name) => (name ? `I am ${name}` : 'Hello'),
   __COMPLETION_DEFAULT_AI_TONE: (tone) => (tone ? `以${tone}的語氣回應我：` : ''), // TODO
