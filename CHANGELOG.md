@@ -1,16 +1,29 @@
 # Changelog
 
+## 4.5.0 (2023-04-27)
+
+### New Features
+
+- Support `zh_CN` locale
+
+## 4.4.4 (2023-03-21)
+
+### Bug Fixes
+
+- Fix default value of `APP_MAX_GROUPS` environment variable
+- Fix default value of `APP_MAX_USERS` environment variable
+
 ## 4.4.3.1 (2023-03-19)
 
 ### New Features
 
-- Implement translate to zh (zh-tw)
+- Implement translate to zh (`zh_TW`)
 
 ## 4.4.3 (2023-03-11)
 
-- Fix wording of `doc` and `report` commands
-
 ### Bug Fixes
+
+- Fix wording of `doc` and `report` commands
 
 ## 4.4.2 (2023-03-11)
 
