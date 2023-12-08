@@ -1,5 +1,28 @@
 # Changelog
 
+## 4.8.0 (2023-12-07)
+
+### New Features
+
+- Support fine-tuned models
+
+## 4.7.6 (2023-11-18)
+
+### Bug Fixes
+
+- Change default max groups to 1000
+- Change default max users to 1000
+- Change default max prompt messages to 4
+- Change default max prompt tokens to 160
+- Change default completion temperature to 1
+- Change default completion max tokens to 64
+
+## 4.7.5 (2023-10-01)
+
+### Bug Fixes
+
+- Update status page
+
 ## 4.7.4 (2023-08-26)
 
 ### Bug Fixes
@@ -85,7 +108,7 @@
 
 ### Bug Fixes
 
-- Add default max tokens for chat completion api
+- Add default max prompt tokens for chat completion api
 
 ## 4.4.0 (2023-03-08)
 
@@ -502,8 +525,8 @@
 
 ### Bug Fixes
 
-- Update default max tokens to 160
-- Update default max lines to 16
+- Change default max completion tokens to 160
+- Change default max prompt messages to 16
 
 ## 1.4.6 (2022-12-20)
 
