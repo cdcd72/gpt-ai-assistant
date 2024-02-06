@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.8.3.1 (2024-02-06)
+
+### Improve
+
+- Modify `maxDuration` to 300 seconds in `vercel.json`
+
 ## 4.8.3 (2024-02-03)
 
 ### Bug Fixes
