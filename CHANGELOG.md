@@ -1,5 +1,17 @@
 # Changelog
 
+## 4.8.3.2 (2024-05-13)
+
+### New Features
+
+- Support chat competition can compatible with `gpt-4-turbo` vision model
+- Support `dall-e-3` image generate model
+
+### Improve
+
+- Improve ja and en locales
+- Add deploy button in `README.md`
+
 ## 4.8.3.1 (2024-02-06)
 
 ### Improve
