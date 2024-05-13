@@ -15,7 +15,7 @@ export const IMAGE_SIZE_512 = '512x512';
 export const IMAGE_SIZE_1024 = '1024x1024';
 
 export const MODEL_GPT_3_5_TURBO = 'gpt-3.5-turbo';
-export const MODEL_GPT_4 = 'gpt-4';
+export const MODEL_GPT_4_TURBO = 'gpt-4-turbo';
 export const MODEL_WHISPER_1 = 'whisper-1';
 
 const client = axios.create({
@@ -38,6 +38,16 @@ client.interceptors.response.use(handleFulfilled, (err) => {
   return handleRejected(err);
 });
 
+const isAboutImageCompletion = ({ messages }) => {
+  let flag = false;
+  messages.forEach((message) => {
+    if (message.role === ROLE_AI && message.content === 'Get Image') {
+      flag = true;
+    }
+  });
+  return flag;
+};
+
 const createChatCompletion = ({
   model = config.OPENAI_COMPLETION_MODEL,
   messages,
@@ -45,14 +55,17 @@ const createChatCompletion = ({
   maxTokens = config.OPENAI_COMPLETION_MAX_TOKENS,
   frequencyPenalty = config.OPENAI_COMPLETION_FREQUENCY_PENALTY,
   presencePenalty = config.OPENAI_COMPLETION_PRESENCE_PENALTY,
-}) => client.post('/v1/chat/completions', {
-  model,
-  messages,
-  temperature,
-  max_tokens: maxTokens,
-  frequency_penalty: frequencyPenalty,
-  presence_penalty: presencePenalty,
-});
+}) => {
+  const body = {
+    model: isAboutImageCompletion({ messages }) ? MODEL_GPT_4_TURBO : model,
+    messages,
+    temperature,
+    max_tokens: maxTokens,
+    frequency_penalty: frequencyPenalty,
+    presence_penalty: presencePenalty,
+  };
+  return client.post('/v1/chat/completions', body);
+};
 
 const createTextCompletion = ({
   model = config.OPENAI_COMPLETION_MODEL,
@@ -73,14 +86,25 @@ const createTextCompletion = ({
 });
 
 const createImage = ({
+  model = config.OPENAI_IMAGE_GENERATION_MODEL,
   prompt,
+  size = config.OPENAI_IMAGE_GENERATION_SIZE,
+  quality = config.OPENAI_IMAGE_GENERATION_QUALITY,
   n = 1,
-  size = IMAGE_SIZE_256,
-}) => client.post('/v1/images/generations', {
-  prompt,
-  n,
-  size,
-});
+}) => {
+  // DALL-E 3 only supports 1024x1024 image size.
+  if (model === 'dall-e-3' && [IMAGE_SIZE_256, IMAGE_SIZE_512].includes(size)) {
+    size = IMAGE_SIZE_1024;
+  }
+
+  return client.post('/v1/images/generations', {
+    model,
+    prompt,
+    size,
+    quality,
+    n,
+  });
+};
 
 const createAudioTranscriptions = ({
   buffer,

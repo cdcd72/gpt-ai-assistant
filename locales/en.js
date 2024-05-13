@@ -88,23 +88,24 @@ const en = {
   __COMMAND_SYS_VERSION_LABEL: 'Version',
   __COMMAND_SYS_VERSION_TEXT: 'Version',
   __COMMAND_SYS_VERSION_REPLY: (version, isLatest) => `Your version is ${isLatest ? 'up-to-date' : version}.`,
-  __COMMAND_TRANSLATE_TO_EN_LABEL: '翻成英文', // TODO
-  __COMMAND_TRANSLATE_TO_EN_TEXT: '翻成英文', // TODO
-  __COMMAND_TRANSLATE_TO_EN_PROMPT: '請將以下內容翻譯成英文。', // TODO
-  __COMMAND_TRANSLATE_TO_JA_LABEL: '翻成日文', // TODO
-  __COMMAND_TRANSLATE_TO_JA_TEXT: '翻成日文', // TODO
-  __COMMAND_TRANSLATE_TO_JA_PROMPT: '請將以下內容翻譯成日文。', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_LABEL: '翻成中文', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_TEXT: '翻成中文', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_PROMPT: (lang) => `${lang === 'zh_TW' ? '將以下內容翻譯成繁體中文' : '将以下内容翻译成简体中文'}。`, // TODO
-  __COMPLETION_DEFAULT_SYSTEM_PROMPT: (lang) => '', // TODO
+  __COMMAND_TRANSLATE_TO_EN_LABEL: 'Trans. to Eng.',
+  __COMMAND_TRANSLATE_TO_EN_TEXT: 'Translate into English',
+  __COMMAND_TRANSLATE_TO_EN_PROMPT: 'Please translate the following content into English.',
+  __COMMAND_TRANSLATE_TO_JA_LABEL: 'Trans. to Jpn.',
+  __COMMAND_TRANSLATE_TO_JA_TEXT: 'Translate into Japanese',
+  __COMMAND_TRANSLATE_TO_JA_PROMPT: 'Please translate the following content into Japanese.',
+  __COMMAND_TRANSLATE_TO_ZH_LABEL: 'Trans. to Chn.',
+  __COMMAND_TRANSLATE_TO_ZH_TEXT: 'Translate into Chinese',
+  __COMMAND_TRANSLATE_TO_ZH_PROMPT: (lang) => `${lang === 'zh_TW' ? 'Please translate the following content into Traditional Chinese.' : 'Please translate the following content into Simplified Chinese.'}。`,
+  __COMPLETION_DEFAULT_SYSTEM_PROMPT: (lang) => 'The following conversation will be in English.',
   __COMPLETION_DEFAULT_HUMAN_PROMPT: (name) => (name ? `I am ${name}` : 'Hello'),
   __COMPLETION_DEFAULT_AI_PROMPT: (name) => (name ? `I am ${name}` : 'Hello'),
-  __COMPLETION_DEFAULT_AI_TONE: (tone) => (tone ? `以${tone}的語氣回應我：` : ''), // TODO
-  __COMPLETION_SEARCH: (a, q) => `根據「${a}」查詢結果，回答「${q}」問題`, // TODO
-  __COMPLETION_SEARCH_NOT_FOUND: '查無資料', // TODO
+  __COMPLETION_DEFAULT_AI_TONE: (tone) => (tone ? `Respond to me in a ${tone}:` : ''),
+  __COMPLETION_SEARCH: (a, q) => `Answer 「${q}」 question based on the 「${a}」 search results`,
+  __COMPLETION_SEARCH_NOT_FOUND: 'No data found',
   __COMPLETION_QUOTATION_MARK_OPENING: '"',
   __COMPLETION_QUOTATION_MARK_CLOSING: '"',
+  __COMPLETION_GOT_IMAGE_REPLY: 'The image has been obtained, please explain the intention.',
   __ERROR_ECONNABORTED: 'Timed out',
   __ERROR_UNKNOWN: 'Something went wrong',
   __ERROR_MAX_GROUPS_REACHED: 'Maximum groups reached',

@@ -33,18 +33,18 @@ const ja = {
   __COMMAND_BOT_DRAW_ALIASES: [],
   __COMMAND_BOT_DRAW_DEMO_LABEL: '描いて',
   __COMMAND_BOT_DRAW_DEMO_TEXT: '猫を描いて',
-  __COMMAND_BOT_FORGET_LABEL: '忘記', // TODO
-  __COMMAND_BOT_FORGET_TEXT: '忘記', // TODO
+  __COMMAND_BOT_FORGET_LABEL: '忘れる',
+  __COMMAND_BOT_FORGET_TEXT: '忘れる',
   __COMMAND_BOT_FORGET_ALIASES: [],
-  __COMMAND_BOT_FORGET_REPLY: '已忘記', // TODO
+  __COMMAND_BOT_FORGET_REPLY: '忘れました',
   __COMMAND_BOT_RETRY_LABEL: 'リトライ',
   __COMMAND_BOT_RETRY_TEXT: 'リトライ',
   __COMMAND_BOT_RETRY_ALIASES: [],
-  __COMMAND_BOT_SEARCH_LABEL: '查詢', // TODO
-  __COMMAND_BOT_SEARCH_TEXT: '查詢', // TODO
+  __COMMAND_BOT_SEARCH_LABEL: '検索',
+  __COMMAND_BOT_SEARCH_TEXT: '検索',
   __COMMAND_BOT_SEARCH_ALIASES: [],
-  __COMMAND_BOT_SEARCH_DEMO_LABEL: '查詢', // TODO
-  __COMMAND_BOT_SEARCH_DEMO_TEXT: '查詢日期', // TODO
+  __COMMAND_BOT_SEARCH_DEMO_LABEL: '検索',
+  __COMMAND_BOT_SEARCH_DEMO_TEXT: '日付を検索する',
   __COMMAND_BOT_SUMMON_DEMO_LABEL: 'サモン',
   __COMMAND_BOT_SUMMON_DEMO_TEXT: '元気？',
   __COMMAND_BOT_TALK_LABEL: '話して',
@@ -88,23 +88,24 @@ const ja = {
   __COMMAND_SYS_VERSION_LABEL: 'バージョン',
   __COMMAND_SYS_VERSION_TEXT: 'バージョン',
   __COMMAND_SYS_VERSION_REPLY: (version, isLatest) => `Your version is ${isLatest ? 'up-to-date' : version}.`,
-  __COMMAND_TRANSLATE_TO_EN_LABEL: '翻成英文', // TODO
-  __COMMAND_TRANSLATE_TO_EN_TEXT: '翻成英文', // TODO
-  __COMMAND_TRANSLATE_TO_EN_PROMPT: '請將以下內容翻譯成英文。', // TODO
-  __COMMAND_TRANSLATE_TO_JA_LABEL: '翻成日文', // TODO
-  __COMMAND_TRANSLATE_TO_JA_TEXT: '翻成日文', // TODO
-  __COMMAND_TRANSLATE_TO_JA_PROMPT: '請將以下內容翻譯成日文。', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_LABEL: '翻成中文', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_TEXT: '翻成中文', // TODO
-  __COMMAND_TRANSLATE_TO_ZH_PROMPT: (lang) => `${lang === 'zh_TW' ? '將以下內容翻譯成繁體中文' : '将以下内容翻译成简体中文'}。`, // TODO
-  __COMPLETION_DEFAULT_SYSTEM_PROMPT: (lang) => '', // TODO
+  __COMMAND_TRANSLATE_TO_EN_LABEL: '英文に翻訳する',
+  __COMMAND_TRANSLATE_TO_EN_TEXT: '英文に翻訳する',
+  __COMMAND_TRANSLATE_TO_EN_PROMPT: '以下の內容を英語に訳してください。',
+  __COMMAND_TRANSLATE_TO_JA_LABEL: '日本語に翻訳する',
+  __COMMAND_TRANSLATE_TO_JA_TEXT: '日本語に翻訳する',
+  __COMMAND_TRANSLATE_TO_JA_PROMPT: '以下の內容を日本語に訳してください。',
+  __COMMAND_TRANSLATE_TO_ZH_LABEL: '中国語に翻訳する',
+  __COMMAND_TRANSLATE_TO_ZH_TEXT: '中国語に翻訳する',
+  __COMMAND_TRANSLATE_TO_ZH_PROMPT: (lang) => `${lang === 'zh_TW' ? '以下の內容を繁体字中国語に訳してください' : '以下の內容を中国語に訳してください'}。`,
+  __COMPLETION_DEFAULT_SYSTEM_PROMPT: (lang) => '以下、日本語で会話を行います。',
   __COMPLETION_DEFAULT_HUMAN_PROMPT: (name) => (name ? `私は${name}です` : 'こんにちは'),
   __COMPLETION_DEFAULT_AI_PROMPT: (name) => (name ? `私は${name}です` : 'こんにちは'),
-  __COMPLETION_DEFAULT_AI_TONE: (tone) => (tone ? `以${tone}的語氣回應我：` : ''), // TODO
-  __COMPLETION_SEARCH: (a, q) => `根據「${a}」查詢結果，回答「${q}」問題`, // TODO
-  __COMPLETION_SEARCH_NOT_FOUND: '查無資料', // TODO
+  __COMPLETION_DEFAULT_AI_TONE: (tone) => (tone ? `${tone}口調で返事してください：` : ''),
+  __COMPLETION_SEARCH: (a, q) => `「${a}」検索結果に基づいて、「${q}」質問に答えてください`,
+  __COMPLETION_SEARCH_NOT_FOUND: 'データが見つかりません',
   __COMPLETION_QUOTATION_MARK_OPENING: '「',
   __COMPLETION_QUOTATION_MARK_CLOSING: '」',
+  __COMPLETION_GOT_IMAGE_REPLY: '画像を取得しました、意図を説明してください。',
   __ERROR_ECONNABORTED: '接続がタイムアウトしました。',
   __ERROR_UNKNOWN: '技術的な問題が発生しています。',
   __ERROR_MAX_GROUPS_REACHED: '最大ユーザー数に達しています。',

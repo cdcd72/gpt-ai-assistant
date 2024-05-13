@@ -35,6 +35,10 @@ If there is any question, please contact me at memochou1993@gmail.com. Thank you
 
 Detailed changes for each release are documented in the [release notes](https://github.com/memochou1993/gpt-ai-assistant/releases).
 
+## Deploy
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fcdcd72%2Fgpt-ai-assistant&env=OPENAI_API_KEY,LINE_CHANNEL_ACCESS_TOKEN,LINE_CHANNEL_SECRET)
+
 ## License
 
 [MIT](LICENSE)
