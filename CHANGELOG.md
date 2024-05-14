@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.8.3.3 (2024-05-14)
+
+### New Features
+
+- Support image competition now use `gpt-4o` vision model
+
 ## 4.8.3.2 (2024-05-13)
 
 ### New Features
