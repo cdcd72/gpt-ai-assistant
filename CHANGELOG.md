@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.8.3.4 (2024-05-15)
+
+### Improve
+
+- Add loading animation for call api situation
+
 ## 4.8.3.3 (2024-05-14)
 
 ### New Features
