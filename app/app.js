@@ -1,4 +1,4 @@
-import { replyMessage } from '../utils/index.js';
+import { loadingMessage, replyMessage } from '../utils/index.js';
 import {
   activateHandler,
   commandHandler,
@@ -17,6 +17,14 @@ import {
 } from './handlers/index.js';
 import Context from './context.js';
 import Event from './models/event.js';
+
+if (!Array.prototype.tap) {
+  // eslint-disable-next-line no-extend-native, func-names
+  Array.prototype.tap = function (callback) {
+    this.forEach((element) => callback(element));
+    return this;
+  };
+}
 
 /**
  * @param {Context} context
@@ -51,6 +59,12 @@ const handleEvents = async (events = []) => (
           .map((event) => new Context(event))
           .map((context) => context.initialize()),
       ))
+        .tap((context) => {
+          const { userId } = context;
+          if (userId) {
+            loadingMessage({ chatId: userId });
+          }
+        })
         .map((context) => (context.error ? context : handleContext(context))),
     ))
       .filter((context) => context.messages.length > 0)

@@ -41,6 +41,14 @@ client.interceptors.response.use(handleFulfilled, (err) => {
   return handleRejected(err);
 });
 
+const loading = ({
+  chatId,
+  loadingSeconds,
+}) => client.post('/v2/bot/chat/loading/start', {
+  chatId,
+  loadingSeconds,
+});
+
 const reply = ({
   replyToken,
   messages,
@@ -84,6 +92,7 @@ const fetchContent = ({
 });
 
 export {
+  loading,
   reply,
   fetchGroupSummary,
   fetchProfile,
