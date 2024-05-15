@@ -1,7 +1,7 @@
 import { TYPE_TRANSLATE } from '../../constants/command.js';
 import { t } from '../../locales/index.js';
 import { ROLE_AI, ROLE_HUMAN } from '../../services/openai.js';
-import { generateCompletion, getCommand } from '../../utils/index.js';
+import { loadingMessage, generateCompletion, getCommand } from '../../utils/index.js';
 import { ALL_COMMANDS, COMMAND_BOT_CONTINUE, ENQUIRE_COMMANDS } from '../commands/index.js';
 import Context from '../context.js';
 import { getHistory, updateHistory } from '../history/index.js';
@@ -23,6 +23,7 @@ const check = (context) => (
  */
 const exec = (context) => check(context) && (
   async () => {
+    if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     updateHistory(context.id, (history) => history.erase());
     const command = getCommand(context.trimmedText);
     const history = getHistory(context.id);

@@ -12,6 +12,7 @@ import generateImage from './generate-image.js';
 import generateTranscription from './generate-transcription.js';
 import getCommand from './get-command.js';
 import getVersion from './get-version.js';
+import loadingMessage from './loading-message.js';
 import replyMessage from './reply-message.js';
 import validateSignature from './validate-signature.js';
 
@@ -30,6 +31,7 @@ export {
   generateTranscription,
   getCommand,
   getVersion,
+  loadingMessage,
   replyMessage,
   validateSignature,
 };
