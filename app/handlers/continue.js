@@ -1,4 +1,4 @@
-import { generateCompletion } from '../../utils/index.js';
+import { loadingMessage, generateCompletion } from '../../utils/index.js';
 import { ALL_COMMANDS, COMMAND_BOT_CONTINUE } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
@@ -16,6 +16,7 @@ const check = (context) => context.hasCommand(COMMAND_BOT_CONTINUE);
  */
 const exec = (context) => check(context) && (
   async () => {
+    if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     updateHistory(context.id, (history) => history.erase());
     const prompt = getPrompt(context.userId);
     const { lastMessage } = prompt;

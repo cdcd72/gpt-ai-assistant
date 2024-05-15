@@ -1,7 +1,7 @@
 import config from '../../config/index.js';
 import { MOCK_TEXT_OK } from '../../constants/mock.js';
 import { ROLE_AI, ROLE_HUMAN } from '../../services/openai.js';
-import { generateImage } from '../../utils/index.js';
+import { loadingMessage, generateImage } from '../../utils/index.js';
 import { COMMAND_BOT_DRAW } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
@@ -19,6 +19,7 @@ const check = (context) => context.hasCommand(COMMAND_BOT_DRAW);
  */
 const exec = (context) => check(context) && (
   async () => {
+    if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     const prompt = getPrompt(context.userId);
     prompt.write(ROLE_HUMAN, `${context.trimmedText}`).write(ROLE_AI);
     try {

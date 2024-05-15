@@ -1,6 +1,6 @@
 import config from '../../config/index.js';
 import { ROLE_AI } from '../../services/openai.js';
-import { generateCompletion } from '../../utils/index.js';
+import { loadingMessage, generateCompletion } from '../../utils/index.js';
 import { COMMAND_BOT_CONTINUE, COMMAND_BOT_RETRY, GENERAL_COMMANDS } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
@@ -18,6 +18,7 @@ const check = (context) => context.hasCommand(COMMAND_BOT_RETRY);
  */
 const exec = (context) => check(context) && (
   async () => {
+    if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     updateHistory(context.id, (history) => history.erase());
     const prompt = getPrompt(context.userId);
     prompt.erase().write(ROLE_AI);

@@ -1,5 +1,5 @@
 import { t } from '../../locales/index.js';
-import { fetchVersion, getVersion } from '../../utils/index.js';
+import { loadingMessage, fetchVersion, getVersion } from '../../utils/index.js';
 import { COMMAND_SYS_VERSION, GENERAL_COMMANDS } from '../commands/index.js';
 import Context from '../context.js';
 import { updateHistory } from '../history/index.js';
@@ -16,6 +16,7 @@ const check = (context) => context.hasCommand(COMMAND_SYS_VERSION);
  */
 const exec = (context) => check(context) && (
   async () => {
+    if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     updateHistory(context.id, (history) => history.erase());
     const current = getVersion();
     const latest = await fetchVersion();
