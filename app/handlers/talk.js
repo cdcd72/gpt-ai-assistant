@@ -26,22 +26,19 @@ const exec = (context) => check(context) && (
     if (!context.event.isGroup) await loadingMessage({ chatId: context.userId });
     const prompt = getPrompt(context.userId);
     try {
-      if (context.event.isImage) {
-        const text = context.trimmedText;
-        prompt.writeImage(ROLE_HUMAN, text).write(ROLE_AI);
-        prompt.patch('Get Image');
-        setPrompt(context.userId, prompt);
-        updateHistory(context.id, (history) => history.writeImage(ROLE_HUMAN, text));
-        context.pushText(t('__COMPLETION_GOT_IMAGE_REPLY'), [COMMAND_BOT_FORGET]);
-      } else {
+      if (context.event.isText) {
         prompt.write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_AI_TONE')(config.BOT_TONE)}${context.trimmedText}`).write(ROLE_AI);
-        const { text, isFinishReasonStop } = await generateCompletion({ prompt });
-        prompt.patch(text);
-        setPrompt(context.userId, prompt);
-        updateHistory(context.id, (history) => history.write(config.BOT_NAME, text));
-        const actions = isFinishReasonStop ? [COMMAND_BOT_FORGET] : [COMMAND_BOT_CONTINUE];
-        context.pushText(text, actions);
       }
+      if (context.event.isImage) {
+        const { trimmedText } = context;
+        prompt.writeImage(ROLE_HUMAN, trimmedText).write(ROLE_AI);
+      }
+      const { text, isFinishReasonStop } = await generateCompletion({ prompt });
+      prompt.patch(text);
+      setPrompt(context.userId, prompt);
+      updateHistory(context.id, (history) => history.write(config.BOT_NAME, text));
+      const actions = isFinishReasonStop ? [COMMAND_BOT_FORGET] : [COMMAND_BOT_CONTINUE];
+      context.pushText(text, actions);
     } catch (err) {
       context.pushError(err);
     }

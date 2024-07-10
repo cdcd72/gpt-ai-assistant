@@ -13,7 +13,7 @@ class Prompt {
 
   constructor() {
     this
-      .write(ROLE_SYSTEM, config.APP_INIT_PROMPT || t('__COMPLETION_DEFAULT_SYSTEM_PROMPT')(config.APP_LANG))
+      .write(ROLE_SYSTEM, config.APP_INIT_PROMPT || t('__COMPLETION_DEFAULT_SYSTEM_PROMPT'))
       .write(ROLE_HUMAN, `${t('__COMPLETION_DEFAULT_HUMAN_PROMPT')(config.HUMAN_NAME)}${config.HUMAN_INIT_PROMPT}`)
       .write(ROLE_AI, `${t('__COMPLETION_DEFAULT_AI_PROMPT')(config.BOT_NAME)}${config.BOT_INIT_PROMPT}`);
   }
@@ -57,7 +57,7 @@ class Prompt {
     const imageContent = [
       {
         type: 'text',
-        text: '這是一張圖片',
+        text: t('__COMPLETION_VISION'),
       },
       {
         type: 'image_url',
