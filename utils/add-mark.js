@@ -3,7 +3,7 @@ import config from '../config/index.js';
 const addMark = (text) => {
   if (!text) return text;
   const marks = ['？', '。', '！', '?', '.', '!'];
-  if (marks.some((mark) => text.endsWith(mark))) {
+  if (marks.some((mark) => text.toString().endsWith(mark))) {
     return text;
   }
   switch (config.APP_LANG) {
